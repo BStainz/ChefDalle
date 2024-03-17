@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Home | Chef Dalle{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <h2>Find Recipes</h2>
+        <div id="loadingIcon">
+            <img src="/static/loadingrobot.png" alt="Loading..."/>
+            <div class="circle-loader"></div>
+            <span id="loadingText"></span>
+        </div>
+        <form id="recipeForm">
+            <!-- Rest of the form code -->
+        </form>
+        <div id="results"></div>
+    </div>
+{% endblock %}
+

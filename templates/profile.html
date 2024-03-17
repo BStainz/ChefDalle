@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Your Profile | Chef Dalle{% endblock %}
+
+{% block content %}
+<div class="py-5">
+    <h2 class="text-center">Your Profile</h2>
+    <div class="mt-4">
+        <form action="/update_profile" method="post">
+            <!-- CSRF token for security -->
+            {{ form.csrf_token }}
+            
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ current_user.username }}" disabled>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ current_user.email }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="diet">Diet Preferences</label>
+                <input type="text" class="form-control" id="diet" name="diet" value="{{ current_user.diet }}">
+            </div>
+            
+            <div class="form-group">
+                <label for="allergies">Allergies</label>
+                <input type="text" class="form-control" id="allergies" name="allergies" value="{{ current_user.allergies }}">
+            </div>
+            
+            <!-- Add more fields as necessary -->
+            
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+
+    <h3>Saved Recipes</h3>
+    <button id="show-recipes-btn" onclick="showRecipes()">Show Recipes</button>
+    <div id="recipes-container" style="display: none;">
+        <div id="saved-recipes" class="recipes-container" style="display: flex; flex-wrap: wrap;"></div> <!-- Container for the saved recipes -->
+        <div id="pagination-controls" class="pagination-controls"></div> <!-- Pagination controls -->
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    var savedRecipes = {{ saved_recipes | tojson | safe }};
+    console.log("Saved recipes data in template:", savedRecipes);  // Debug statement
+</script>
+<script id="saved-recipes-data" type="application/json">{{ saved_recipes|tojson|safe }}</script>
+{% endblock %}

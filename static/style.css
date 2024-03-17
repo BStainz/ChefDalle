@@ -1,0 +1,349 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/your-background-image.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.card.recipe {
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.card.recipe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+.card-img-top {
+    border-radius: 0;
+}
+
+.card-title {
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.recipe-card {
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+.recipe-header img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.recipe-content {
+    padding: 15px;
+    background-color: #f8f8f8;
+}
+
+.recipe-title {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+    margin-top:10px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: auto;
+}
+.recipe-info > div {
+    margin-bottom: 20px;
+}
+
+.recipe-ingredients ul, .recipe-steps ol {
+    padding-left: 20px;
+}
+.ingredients-list, .steps-list {
+    padding-left: 20px;
+}
+
+.ingredients-list li, .steps-list li {
+    margin-bottom: 5px;
+}
+
+.recipe-footer {
+    padding: 10px;
+    background-color: #ffffff;
+    text-align: right;
+    border-top: 1px solid #e7e7e7;
+    font-style: italic;
+}
+
+.preparation-time {
+    font-weight: bold;
+    color: #333;
+}
+
+.liked, .disliked {
+    font-weight: bold !important;
+}
+
+.liked {
+    color: green !important;
+}
+
+.disliked {
+    color: red !important;
+}
+.form-row {
+    margin-bottom: 20px; /* Ensure space between form groups */
+}
+
+.image-upload-section {
+    margin-bottom: 30px; /* Space between upload section and submit button */
+}
+
+.btn-success {
+    width: 100%; /* Make the Get Recommendations button full width for emphasis */
+}
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    margin-top: 20px; /* Space between the buttons and the form */
+    margin-bottom: 10px; /* Add space below the buttons */
+    gap: 10px; /* Add space between the buttons */
+}
+/* Optional: Add more distinct styles for the upload label/button */
+label[for="imageUpload"] {
+    display: inline-block; /* Override Bootstrap's btn-block if necessary */
+    text-align: center; /* Center the text */
+    border-radius: 0.25rem; /* Match Bootstrap's border-radius */
+    padding: 0.375rem 0.75rem; /* Adjust padding to match input fields */
+    margin-bottom: 1rem; /* Ensure there's space above the submit button */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow for depth */
+}
+
+#loadingIcon {
+    display: flex; /* Hidden by default */
+    position: fixed; /* Adjust as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100; /* Ensure it's above other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#loadingIcon img {
+    width: 50px; /* Adjust to your image's size */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    position: relative;
+}
+.circle-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 123, 255, 0.2);
+    border: 3px solid transparent;
+    border-top-color: #007bff;
+    animation: spin 2s linear infinite;
+}
+#loadingIcon span {
+    display: block;
+    position: absolute;
+    top: 100%; /* Position the text below the image */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+#imageForm label {
+    cursor: pointer;
+    width: 100%;
+}
+.form-group, .form-row {
+    margin-bottom: 20px; /* Ensure consistent spacing between form groups */
+}
+
+.btn-info.btn-block {
+    margin-bottom: 20px; /* Space between the upload button and the next row */
+}
+.recipe-image-sm {
+    max-width: 100px; /* Example size */
+    display: block; /* This makes it easier to hide/show */
+}
+.saved-recipe-card {
+    border: 1px solid #ccc;
+    display: grid;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 315px; /* Adjust based on preference */
+    margin: 1%; /* Center the card if you want */
+    background: #fff;
+    grid-column-end: span 1; /* Default span to take up only one column */
+    padding: 10px;
+}
+
+.flex-card{
+    width:350px;
+    height:auto;
+    overflow:auto;
+}
+.saved-recipe-image {
+    width: 100%;
+    height: 200px; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the card */
+}
+.expanded-recipe-card {
+    width: 100%; /* Make it full width */
+    grid-column: 1 / -1; /* Make it take the full row */
+    position: relative; /* Needed for z-index to work */
+    z-index: 10; /* Makes it stack above other cards */
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Add a deeper shadow */
+    margin: auto; /* Add some margin around the expanded card */
+    max-width: 1000px;
+    flex-direction: row;
+    align-items: center;
+    max-height: none;
+}
+.show-details, .toggle-image-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.show-details:hover, .toggle-image-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust the size of the images in expanded cards */
+.expanded-recipe-card .saved-recipe-image {
+    width: 100%; /* Adjust this to control the image size */
+    max-height: 300px; /* Adjust this to control the image height */
+    object-fit: cover;
+    max-width: auto; /* Larger size when expanded */
+    height: auto;
+    transition: max-height 0.3s ease-in-out;
+}
+.expanded-recipe-card .saved-recipe-info {
+    display: block;
+    order: 3;
+    width: 100%;
+}
+.show-details, .delete-recipe {
+    margin: 10px;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Improve the overall layout of the details section */
+.saved-recipe-info {
+    display: none;
+    padding: 0.5rem;
+    background-color: #f7f7f7;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 10px; /* Add some space between the title and details */
+    max-height: none; /* Allow the content to expand as needed */
+    overflow: hidden; /* Hide the overflow */
+    transition: max-height 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Style for the nutrition and ingredients section for expanded cards */
+.expanded-recipe-card .recipe-nutrition, 
+.expanded-recipe-card .recipe-ingredients,
+.expanded-recipe-card .recipe-steps {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+}
+.recipe-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.show-details, .delete-recipe {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+.show-details:hover, .delete-recipe:hover {
+    background-color: #0056b3;
+}
+.saved-recipe-title {
+    padding: 10px;
+    background-color: #f7f7f7;
+    margin: 0;
+    text-align: center; /* Center the title text */
+    font-size: 1.25rem; /* Adjust the font size */
+}
+.recipes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.pagination-controls button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+}
+.saved-recipe-card:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+.pagination-controls button.active {
+    background-color: #007bff;
+    color: white;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 576px) {
+    .form-row .col {
+        margin-bottom: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .expanded-recipe-card {
+        grid-column: 1 / -1; /* Take full width on smaller screens */
+    }
+}
